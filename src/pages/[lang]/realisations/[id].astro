@@ -4,29 +4,15 @@ import Navbar from '../../../components/Navbar.astro';
 import Footer from '../../../components/Footer.astro';
 import { useTranslations, useTranslatedPath } from '../../../i18n/utils';
 
-export async function getStaticPaths() {
-  const response = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/projects/`);
-  const data = await response.json();
-  const realisations = data.items || data;
-  const locales = ['fr', 'en'];
-
-  if (!Array.isArray(realisations)) return [];
-
-  return locales.flatMap(lang => 
-    realisations.map((p: any) => ({
-      params: { lang, id: p.id.toString() },
-      props: { projetId: p.id },
-    }))
-  );
-}
-
-const { lang } = Astro.params;
-const { projetId } = Astro.props;
+const { lang, id: projetId } = Astro.params;
 const t = useTranslations(lang as any);
 const translatePath = useTranslatedPath(lang as any);
 
 // Récupération des détails du projet
 const response = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/projects/${projetId}`);
+if (!response.ok) {
+    return Astro.redirect(translatePath('/404'));
+}
 const rawProjet = await response.json();
 
 const projet = {

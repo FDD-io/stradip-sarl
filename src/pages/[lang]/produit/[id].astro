@@ -5,29 +5,20 @@ import Footer from '../../../components/Footer.astro';
 import ProductCard from '../../../components/ProductCard.astro';
 import { useTranslations, useTranslatedPath } from '../../../i18n/utils';
 
-export async function getStaticPaths() {
-  const response = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/products/`);
-  const data = await response.json();
-  const products = data.items || data;
-  const locales = ['fr', 'en'];
-
-  if (!Array.isArray(products)) return [];
-
-  return locales.flatMap(lang => 
-    products.map((p: any) => ({
-      params: { lang, id: p.id.toString() },
-      props: { 
-        product: p,
-        allProducts: products
-      },
-    }))
-  );
-}
-
-const { lang } = Astro.params;
-const { product, allProducts } = Astro.props;
+const { lang, id } = Astro.params;
 const t = useTranslations(lang as any);
 const translatePath = useTranslatedPath(lang as any);
+
+// Récupération des données en mode SSR
+const response = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/products/`);
+const allProductsData = await response.json();
+const allProducts = allProductsData.items || allProductsData;
+
+const product = allProducts.find((p: any) => p.id.toString() === id);
+
+if (!product) {
+    return Astro.redirect(translatePath('/404'));
+}
 
 // Calcul des produits similaires
 const similaires = allProducts
