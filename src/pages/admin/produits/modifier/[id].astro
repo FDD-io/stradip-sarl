@@ -45,7 +45,7 @@ const displayImageUrl = product.image_url.startsWith('http')
             <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tighter mt-6 italic">Modifier <span class="text-stradip-blue">{product.nom}</span></h2>
         </header>
 
-        <form id="editForm" method="POST" enctype="multipart/form-data" class="bg-white p-10 md:p-16 rounded-[3rem] shadow-sm border border-slate-100 space-y-12">
+        <form id="editForm" method="POST" enctype="multipart/form-data" class="bg-white p-6 sm:p-10 md:p-16 rounded-2xl sm:rounded-[3rem] shadow-sm border border-slate-100 space-y-8 sm:space-y-12">
             <!-- Messages d'état -->
             <div id="statusMessage" class="hidden p-4 rounded-xl text-sm font-bold"></div>
 
@@ -97,9 +97,9 @@ const displayImageUrl = product.image_url.startsWith('http')
                     </div>
             <div>
                 <label class="block text-[10px] font-black uppercase tracking-[3px] text-slate-400 mb-4">Couleur dominante</label>
-                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100">
-                    <div class="flex items-center gap-8 mb-8">
-                        <div id="colorCircle" class="w-20 h-20 rounded-[1.5rem] shadow-inner border-4 border-white transition-all duration-500" style={`background-color: ${product.couleur || "#FFFFFF"};`}></div>
+                <div class="bg-slate-50 p-5 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border border-slate-100">
+                    <div class="flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-8 mb-6 sm:mb-8">
+                        <div id="colorCircle" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-[1.5rem] shadow-inner border-4 border-white transition-all duration-500" style={`background-color: ${product.couleur || "#FFFFFF"};`}></div>
                         <div class="flex-1">
                             <input type="text" id="colorText" value={product.couleur || "#FFFFFF"} class="bg-transparent border-none outline-none font-mono text-2xl font-black text-slate-800 uppercase w-full tracking-tighter" placeholder="#HEX">
                             <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 italic">Code Couleur Hexadécimal</p>
@@ -117,7 +117,7 @@ const displayImageUrl = product.image_url.startsWith('http')
 
             <div class="md:col-span-2">
                 <label class="block text-[10px] font-black uppercase tracking-[3px] text-slate-400 mb-4">Pièces recommandées</label>
-                <div class="flex flex-wrap gap-3 p-8 bg-slate-50 border border-slate-100 rounded-[2.5rem]">
+                <div class="flex flex-wrap gap-3 p-5 sm:p-8 bg-slate-50 border border-slate-100 rounded-2xl sm:rounded-[2.5rem]">
                     {['Toutes les pièces', 'Living room', 'Bedroom', 'Bathroom', 'Dining room', 'Kitchen', 'Outdoor'].map(room => (
                         <label class="cursor-pointer group">
                             <input 
@@ -127,7 +127,7 @@ const displayImageUrl = product.image_url.startsWith('http')
                                 checked={(product.piece || "").includes(room)}
                                 class="sr-only peer"
                             >
-                            <span class="px-8 py-4 rounded-2xl bg-white border border-slate-100 text-[11px] font-black uppercase tracking-[2px] text-slate-400 peer-checked:bg-stradip-cyan peer-checked:text-white peer-checked:border-stradip-cyan peer-checked:shadow-xl peer-checked:shadow-stradip-cyan/20 transition-all group-hover:border-stradip-cyan/30 block">
+                            <span class="px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-white border border-slate-100 text-[11px] font-black uppercase tracking-[2px] text-slate-400 peer-checked:bg-stradip-cyan peer-checked:text-white peer-checked:border-stradip-cyan peer-checked:shadow-xl peer-checked:shadow-stradip-cyan/20 transition-all group-hover:border-stradip-cyan/30 block">
                                 {room}
                             </span>
                         </label>

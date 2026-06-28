@@ -23,7 +23,7 @@ try {
             <p class="text-slate-500 text-sm mt-1">Ajoutez une nouvelle référence au catalogue STRADIP.</p>
         </header>
 
-        <form id="productForm" class="bg-white p-8 md:p-12 shadow-xl border border-slate-100 rounded-3xl grid grid-cols-1 md:grid-cols-2 gap-8">
+        <form id="productForm" class="bg-white p-5 sm:p-8 md:p-12 shadow-xl border border-slate-100 rounded-2xl sm:rounded-3xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <!-- Messages d'erreur ou succès -->
             <div id="statusMessage" class="hidden md:col-span-2 p-4 rounded-xl text-sm font-bold"></div>
 
@@ -98,11 +98,11 @@ try {
 
             <div class="md:col-span-2">
                 <label class="block text-[0.65rem] font-black uppercase tracking-widest text-slate-400 mb-4">Pièces recommandées</label>
-                <div class="flex flex-wrap gap-3 p-6 bg-slate-50 border border-slate-200 rounded-[2rem]">
+                <div class="flex flex-wrap gap-3 p-4 sm:p-6 bg-slate-50 border border-slate-200 rounded-2xl sm:rounded-[2rem]">
                     {['Toutes les pièces', 'Living room', 'Bedroom', 'Bathroom', 'Dining room', 'Kitchen', 'Outdoor'].map(room => (
                         <label class="cursor-pointer group">
                             <input type="checkbox" name="piece_chips" value={room} class="sr-only peer">
-                            <span class="px-6 py-3 rounded-xl bg-white border border-slate-100 text-[10px] font-black uppercase tracking-widest text-slate-400 peer-checked:bg-stradip-cyan peer-checked:text-white peer-checked:border-stradip-cyan peer-checked:shadow-lg peer-checked:shadow-stradip-cyan/20 transition-all group-hover:border-stradip-cyan/30 block">
+                            <span class="px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-white border border-slate-100 text-[10px] font-black uppercase tracking-widest text-slate-400 peer-checked:bg-stradip-cyan peer-checked:text-white peer-checked:border-stradip-cyan peer-checked:shadow-lg peer-checked:shadow-stradip-cyan/20 transition-all group-hover:border-stradip-cyan/30 block">
                                 {room}
                             </span>
                         </label>
@@ -116,7 +116,7 @@ try {
                 <textarea name="description" rows="3" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:border-stradip-cyan outline-none transition-colors"></textarea>
             </div>
 
-            <div class="md:col-span-2 bg-slate-50/50 p-8 border-2 border-dashed border-slate-200 rounded-2xl group hover:border-stradip-cyan transition-colors">
+            <div class="md:col-span-2 bg-slate-50/50 p-5 sm:p-8 border-2 border-dashed border-slate-200 rounded-2xl group hover:border-stradip-cyan transition-colors">
                 <label class="block text-[0.65rem] font-black uppercase tracking-widest text-slate-400 mb-4 text-center">Photo du produit</label>
                 
                 <!-- PREVIEW CONTAINER -->

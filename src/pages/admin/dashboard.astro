@@ -34,20 +34,20 @@ const quickActions = [
 ---
 
 <AdminLayout title="Tableau de bord">
-    <header class="flex justify-between items-center mb-12">
+    <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-12">
         <div>
             <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tighter">Console de Gestion</h2>
             <p class="text-slate-500 text-sm mt-1">Bienvenue sur votre espace STRADIP Admin.</p>
         </div>
-        <div class="text-right hidden md:block">
+        <div class="text-right hidden sm:block">
             <p class="text-[10px] font-black uppercase tracking-[3px] text-slate-400" id="current-date"></p>
         </div>
     </header>
 
     <!-- STATS GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
         {stats.map(stat => (
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group">
                 <div class="flex justify-between items-start mb-4">
                     <span class="text-3xl group-hover:scale-110 transition-transform duration-500">{stat.icon}</span>
                     <span class={`text-[10px] font-black uppercase tracking-widest ${stat.color}`}>STRADIP Insights</span>
@@ -60,10 +60,10 @@ const quickActions = [
 
     <!-- QUICK ACTIONS -->
     <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
-        <div class="p-8 border-b border-slate-50">
+        <div class="p-6 sm:p-8 border-b border-slate-50">
             <h3 class="font-black text-slate-900 uppercase text-xs tracking-[3px]">Actions Prioritaires</h3>
         </div>
-        <div class="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickActions.map(action => (
                 <a href={action.href} class="flex flex-col p-6 bg-slate-50 rounded-2xl border border-transparent hover:border-stradip-cyan hover:bg-white hover:shadow-2xl transition-all duration-500 group">
                     <span class="text-3xl mb-4 group-hover:rotate-12 transition-transform">{action.icon}</span>
@@ -82,7 +82,7 @@ const quickActions = [
         </div>
         <div class="space-y-4">
             {activities.map((act: any) => (
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 flex items-center justify-between group hover:border-stradip-cyan/30 transition-all">
+                <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:border-stradip-cyan/30 transition-all">
                     <div class="flex items-center gap-4">
                         <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
                             {act.icon}
@@ -96,7 +96,7 @@ const quickActions = [
                             </p>
                         </div>
                     </div>
-                    <span class="px-3 py-1 bg-slate-50 text-slate-400 text-[9px] font-black uppercase tracking-widest rounded-full group-hover:bg-stradip-cyan/10 group-hover:text-stradip-cyan transition-colors">Admin</span>
+                    <span class="self-start sm:self-center px-3 py-1 bg-slate-50 text-slate-400 text-[9px] font-black uppercase tracking-widest rounded-full group-hover:bg-stradip-cyan/10 group-hover:text-stradip-cyan transition-colors">Admin</span>
                 </div>
             ))}
 

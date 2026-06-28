@@ -12,8 +12,8 @@ const menuItems = [
 ];
 ---
 
-<aside class="w-64 bg-[#0a1628] text-white flex flex-col h-screen sticky top-0 shrink-0 shadow-2xl z-50">
-    <div class="p-8 border-b border-white/5">
+<aside id="admin-sidebar" class="w-64 bg-[#0a1628] text-white flex flex-col h-screen fixed md:sticky top-0 left-0 shrink-0 shadow-2xl z-50 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+    <div class="p-8 border-b border-white/5 flex items-center justify-between">
         <div class="flex items-center gap-3">
             <div class="w-10 h-10">
                 <Image src={logo} alt="Logo Stradip" class="w-full h-full object-cover rounded" />
@@ -23,6 +23,11 @@ const menuItems = [
                 <span class="text-[8px] font-bold tracking-[3px] text-stradip-cyan leading-none mt-1 uppercase">Admin</span>
             </div>
         </div>
+        <button id="sidebar-close" class="md:hidden p-1.5 -mr-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition focus:outline-none" aria-label="Fermer le menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
     </div>
 
     <nav class="flex-1 px-4 py-8 space-y-2 overflow-y-auto">
